@@ -1,1 +1,5 @@
-# SLM_phase_pattern
+# SLM Phase Pattern generator
+
+```math
+SE = \frac{\sigma}{\sqrt{n}}
+```

@@ -7,12 +7,13 @@ import imageio
 from pylab import *
 from mpl_toolkits.mplot3d import Axes3D
 
+
 def join_phase_ampl(phase,ampl):
     tmp=np.zeros((ampl.shape[0],ampl.shape[1]),dtype=complex)
     for a in range(0,ampl.shape[0]):
         for b in range(0,ampl.shape[1]):
             tmp[a,b] = ampl[a,b]*np.exp(phase[a,b]*1.j)
-    
+
     return tmp
 
 def Beam_shape(sizex,sizey,sigma,mu):
@@ -51,31 +52,31 @@ error=[]
 for x in range(20):
     u = sfft.fft2(ampl)
     u = sfft.fftshift(u)
-    
+
     #The SLM renders the phase as multiple of 255 (255=2pi, 0 = 0pi). Some values of pi aren't permitted (discrete phase pattern)
     phase=np.round((np.angle(u)+np.pi)*255/(2*np.pi))
-    
+
     ## For plotting algorithm evol.
     SLM_phase=phase
     ## End of plotting
-    
+
     #Back to the range [-pi,pi] but keeping the discretization imposed by the SLM (integers in [0,255])
     phase=phase/255*(2*np.pi)-np.pi
-    
+
     u=join_phase_ampl(phase,PS_shape.T)
     ampl=sfft.ifft2(u)
     #ampl = sfft.ifftshift(ampl)
-    
+
     ## For plotting algorithm evol.
     tmp=np.square(np.abs(sfft.ifft2(u)))
     REAL_img=np.round(tmp/np.max(tmp)*255)
     images.append(np.uint8(np.hstack((SLM_phase, REAL_img))))
     ## End of plotting
-    
+
     error.append(np.sum(np.square(REAL_img-im_bin)))
-    
+
     ampl=join_phase_ampl(np.angle(ampl),init_ampl)
-    
+
 
 #plt.close('all')
 #fig = plt.figure(2)

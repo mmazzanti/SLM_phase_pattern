@@ -12,7 +12,7 @@ wl=0.000008                # Wavelength of light
 
 d=wl/(np.sin(thetaB)*2)    # Spacing of the diffraction grating
 N=SLM_X_SIZE/d             # Number of steps (sawtooth) fitting in the slm area
-incr=round(SIZE_X/N) 
+incr=round(SIZE_X/N)
 
 for a in range(0,SIZE_Y):
     for b in range(0,SIZE_X):
@@ -23,7 +23,7 @@ png.from_array(Grating2, 'L').save("Grating.png")
 
 plt.imshow(Grating2)
 plt.colorbar()
-plt.show()      
+plt.show()
 
 plt.ion()
 SIZE_X,SIZE_Y=1272,1024
@@ -53,8 +53,8 @@ png.from_array(Lens2, 'L').save("Lens.png")
 plt.imshow(Lens2)
 plt.colorbar()
 plt.draw()
-plt.ioff()
-plt.show()  
+#plt.ioff()
+plt.show()
 
 Tot=(Lens+Grating)%256
 Tot2=Tot.astype(uint8)

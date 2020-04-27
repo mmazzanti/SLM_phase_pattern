@@ -30,7 +30,7 @@ def surface_plot (matrix, **kwargs):
     surf = ax.plot_surface(x, y, matrix, **kwargs)
     return (fig, ax, surf)
 
-im = Image.open("Pinning_test_tweezers.bmp")
+im = Image.open("point-13_100x100.bmp")
 im_bin=np.array(im, dtype=np.uint8)
 SIZE_X,SIZE_Y=im_bin.shape
 init_ampl=np.sqrt(im_bin) ## Square of amplitude
@@ -91,8 +91,7 @@ imageio.mimsave('./SLM_evol.gif', images, fps=1)
 plt.plot(error)
 plt.show()
 
+# <plotcell>
 plt.imshow(REAL_img-init_ampl)
-#plt.imshow(REAL_img)
-
 plt.colorbar()
 plt.show()

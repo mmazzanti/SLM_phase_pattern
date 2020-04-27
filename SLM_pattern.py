@@ -7,7 +7,6 @@ import imageio
 from pylab import *
 from mpl_toolkits.mplot3d import Axes3D
 
-
 def join_phase_ampl(phase,ampl):
     tmp=np.zeros((ampl.shape[0],ampl.shape[1]),dtype=complex)
     for a in range(0,ampl.shape[0]):

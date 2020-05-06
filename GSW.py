@@ -63,9 +63,9 @@ def undiscretize_phase(phase):
 target_im = Image.open("Img/point-13_100x100.bmp")
 target_im=norm(target_im)   # Image in intensity units [0,1]
 SIZE_X,SIZE_Y=target_im.shape
-#plt.imshow(target_im)
-#plt.colorbar()
-#plt.show()'''
+plt.imshow(target_im)
+plt.colorbar()
+plt.show()
 
 # The initial weights are all = 1.
 w=np.ones((SIZE_X,SIZE_Y))

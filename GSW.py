@@ -5,7 +5,6 @@ import scipy.fftpack as sfft
 import random
 import imageio
 import sys
-import cv2
 from pylab import *
 from mpl_toolkits.mplot3d import Axes3D
 import png as png
@@ -51,7 +50,7 @@ def bin_norm_clip(matrix):  # Function that clips the values to 0-255 (SLM stand
 
 
 def weights(w,target_im,w_prev,std_int): # This weight function works only where the intensity == 1 (discrete tweezers)
-    w[target_im==1] = ((target_im[target_im==1] / std_int[target_im==1]) ** 0.5) * w_prev[target_im==1]
+    w[target_im==1] = np.sqrt((target_im[target_im==1] / std_int[target_im==1])) * w_prev[target_im==1]
     return (w)
 
 def discretize_phase(phase):

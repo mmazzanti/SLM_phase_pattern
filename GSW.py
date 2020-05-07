@@ -4,15 +4,17 @@ from matplotlib import pyplot as plt
 import scipy.fftpack as sfft
 import random
 import imageio
+import sys
 import cv2
 from pylab import *
 from mpl_toolkits.mplot3d import Axes3D
+import png as png
 
 def epsilon(u_int, target_im):
     max = np.max(u_int[target_im==1]) #Max value of the obtained intensity at the tweezers position
     min = np.min(u_int[target_im==1]) #Min value of the obtained intensity at the tweezers position
     error = (max-min)/(max+min)
-    print("Error :", error)
+    #print("Error :", error)
     return error
 
 def join_phase_ampl(phase,ampl):
@@ -60,12 +62,19 @@ def undiscretize_phase(phase):
     phase=phase/255*(2*np.pi)-np.pi
     return(phase)
 
+
+n_rep=int(sys.argv[1])
+if(n_rep <=0 or n_rep > 150):
+    print("Wrong number of iterations")
+    exit(0)
+
 target_im = Image.open("Img/point-13_100x100.bmp")
 target_im=norm(target_im)   # Image in intensity units [0,1]
 SIZE_X,SIZE_Y=target_im.shape
-plt.imshow(target_im)
-plt.colorbar()
-plt.show()
+fig, axs = plt.subplots(2,2)
+im0=axs[0,0].imshow(target_im)
+plt.colorbar(im0,ax=axs[0,0])
+
 
 # The initial weights are all = 1.
 w=np.ones((SIZE_X,SIZE_Y))
@@ -81,8 +90,7 @@ errors=[]
 u=np.zeros((SIZE_X,SIZE_Y),dtype=complex)
 # Random phase at the first iteration
 phase=2*np.pi*np.random.rand(SIZE_X,SIZE_Y)-np.pi
-
-for rep in range(30):
+for rep in range(n_rep):
     # Fourier plane, random phase (at the round 1) and gaussian beam
     u=join_phase_ampl(phase,PS_shape.T)
     # To the real plane...
@@ -113,10 +121,16 @@ for rep in range(30):
     Final_ampl_phase=phase
     phase=undiscretize_phase(phase)
 
+axs[0,1].plot(errors)
+axs[0,1].set_yscale('log')
 
-plt.imshow(std_int)
-plt.colorbar()
+
+im1=axs[1,0].imshow(target_im-std_int)
+plt.colorbar(im1,ax=axs[1,0])
+
+im2=axs[1,1].imshow(std_int)
+plt.colorbar(im2,ax=axs[1,1])
 plt.show()
-plt.imshow(Final_ampl_phase)
-plt.colorbar()
-plt.show()
+
+png.from_array(Final_ampl_phase.astype(uint8), 'L').save("Img/Phase_pattern_GSW.png")
+png.from_array((std_int*255).astype(uint8), 'L').save("Img/Rec_img_GSW.png")

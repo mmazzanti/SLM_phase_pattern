@@ -60,8 +60,10 @@ n_rep=int(sys.argv[1])
 if(n_rep <=0 or n_rep > 150):
     print("Wrong number of iterations")
     exit(0)
-verbose=int(sys.argv[2])
-print(verbose)
+if len(sys.argv)>2:
+    verbose=int(sys.argv[2])
+else:
+    verbose=0
 
 target_im = Image.open("Img/point-13_100x100.bmp")
 target_im=norm(target_im)   # Image in intensity units [0,1]
@@ -69,7 +71,7 @@ SIZE_X,SIZE_Y=target_im.shape
 fig, axs = plt.subplots(2,2)
 im0=axs[0,0].imshow(target_im)
 plt.colorbar(im0,ax=axs[0,0])
-
+axs[0,0].set_title('Target image')
 
 # The amplitude in the fourier plane is a Gaussian (beam)
 PS_shape=Beam_shape(SIZE_X,SIZE_Y,255,0)
@@ -118,13 +120,15 @@ for rep in range(n_rep):
 
 axs[0,1].plot(errors)
 axs[0,1].set_yscale('log')
-
+axs[0,1].set_title('Convergence')
 
 im1=axs[1,0].imshow(target_im-std_int)
 plt.colorbar(im1,ax=axs[1,0])
+axs[1,0].set_title('Reconstructed image - Target image')
 
 im2=axs[1,1].imshow(std_int)
 plt.colorbar(im2,ax=axs[1,1])
+axs[1,1].set_title('Reconstructed image')
 plt.show()
 
 png.from_array(Final_ampl_phase.astype(uint8), 'L').save("Img/Phase_pattern_GS.png")

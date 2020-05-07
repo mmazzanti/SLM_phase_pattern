@@ -8,14 +8,13 @@ The various files have the following purposes:
 
 <div class="row">
   <div class="column">
-  <img width="300" height="150" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif">
-  <em>Phase pattern evolution for GS algorithm</em>
+  <img width="300" height="150" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif"> 
   </div>
   <div class="column">
   <img width="200" height="132" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GS_results.png">
  </div>
 </div>
-
+<em>Phase pattern evolution for GS algorithm</em>
 * GSW.py : Weighted Gerchberg–Saxton algorithm. Improvement of the GS algorithm to obtain better hologram uniformity. Based on [1]
 
 <p align="center">

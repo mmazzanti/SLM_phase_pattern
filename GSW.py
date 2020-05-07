@@ -73,6 +73,7 @@ SIZE_X,SIZE_Y=target_im.shape
 fig, axs = plt.subplots(2,2)
 im0=axs[0,0].imshow(target_im)
 plt.colorbar(im0,ax=axs[0,0])
+axs[0,0].set_title('Target image')
 
 
 # The initial weights are all = 1.
@@ -122,13 +123,16 @@ for rep in range(n_rep):
 
 axs[0,1].plot(errors)
 axs[0,1].set_yscale('log')
+axs[0,1].set_title('Convergence')
 
 
 im1=axs[1,0].imshow(target_im-std_int)
 plt.colorbar(im1,ax=axs[1,0])
+axs[1,0].set_title('Reconstructed image - Target image')
 
 im2=axs[1,1].imshow(std_int)
 plt.colorbar(im2,ax=axs[1,1])
+axs[1,1].set_title('Reconstructed image')
 plt.show()
 
 png.from_array(Final_ampl_phase.astype(uint8), 'L').save("Img/Phase_pattern_GSW.png")

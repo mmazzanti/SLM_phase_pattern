@@ -6,6 +6,7 @@ import random
 import imageio
 from pylab import *
 from mpl_toolkits.mplot3d import Axes3D
+import png as png
 
 def join_phase_ampl(phase,ampl):
     tmp=np.zeros((ampl.shape[0],ampl.shape[1]),dtype=complex)
@@ -30,7 +31,7 @@ def surface_plot (matrix, **kwargs):
     surf = ax.plot_surface(x, y, matrix, **kwargs)
     return (fig, ax, surf)
 
-im = Image.open("point-13_100x100.bmp")
+im = Image.open("Img/point-13_100x100.bmp")
 im_bin=np.array(im, dtype=np.uint8)
 SIZE_X,SIZE_Y=im_bin.shape
 init_ampl=np.sqrt(im_bin) ## Square of amplitude
@@ -85,13 +86,15 @@ for x in range(20):
 #plt.figure(2)
 #plt.imshow(np.abs(sfft.ifft2(u)))
 
-kwargs_write = {'fps':1.0, 'quantizer':'nq'}
-imageio.mimsave('./SLM_evol.gif', images, fps=1)
+#kwargs_write = {'fps':1.0, 'quantizer':'nq'}
+#imageio.mimsave('./SLM_evol.gif', images, fps=1)
 
 plt.plot(error)
 plt.show()
 
 # <plotcell>
-plt.imshow(REAL_img-init_ampl)
+plt.imshow(REAL_img)
 plt.colorbar()
 plt.show()
+png.from_array(REAL_img.astype(uint8), 'L').save("Img/Rec_img_GS.png")
+png.from_array(SLM_phase.astype(uint8), 'L').save("Img/Phase_pattern_GS.png")

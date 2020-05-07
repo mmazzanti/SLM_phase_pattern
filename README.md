@@ -6,6 +6,10 @@ The code is meant for a Hamamatsu LCOS-SLM model X13138-5
 The various files have the following purposes:
 * GS.py : Gerchberg–Saxton algorithm. Generates a phase hologram in a range [0,255] corresponding to a [0,2pi] phase. In the SLM plane the assumption is that a the incident amplitude has the shape of a Gaussian beam.
 
+<p align="center">
+  <img width="460" height="300" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif">
+</p>
+
 ![Algo_conv](https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif )
 
 * GSW.py : Weighted Gerchberg–Saxton algorithm. Improvement of the GS algorithm to obtain better hologram uniformity. Based on [1]

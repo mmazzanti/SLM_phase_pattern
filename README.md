@@ -7,12 +7,9 @@ The various files have the following purposes:
 * GS.py : Gerchberg–Saxton algorithm. Generates a phase hologram in a range [0,255] corresponding to a [0,2pi] phase. In the SLM plane the assumption is that a the incident amplitude has the shape of a Gaussian beam.
 
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| <img width="300" height="150" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif"> 
-  | <img width="200" height="132" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GS_results.png">
-  |
-| Phase pattern evolution for GS algorithm  | Errors and reconstructed image for the GS algorithm  |
+| Phase pattern evolution for GS algorithm  | Errors and reconstructed image for the GS algorithm |
+|  :---:  |  :---:  |
+|<img width="300" height="150" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif"> | <img width="400" height="265" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GS_results.png">|
 
 
 * GSW.py : Weighted Gerchberg–Saxton algorithm. Improvement of the GS algorithm to obtain better hologram uniformity. Based on [1]

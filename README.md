@@ -15,7 +15,8 @@ The various files have the following purposes:
 * GSW.py : Weighted Gerchberg–Saxton algorithm. Improvement of the GS algorithm to obtain better hologram uniformity. Based on [1]
 
 <p align="center">
- <strong>Errors and reconstructed image for the GSW algorithm (40 iterations)</strong>
+ <strong>Errors and reconstructed image for the GSW algorithm (40 iterations)</strong></p>
+ <p align="center">
 <img width="400" height="265" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GSW_results.png">
 </p>
 

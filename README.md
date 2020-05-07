@@ -33,4 +33,4 @@ The various files have the following purposes:
 </p>
 
 
-[1]Roberto Di Leonardo, Francesca Ianni, and Giancarlo Ruocco, *"Computer generation of optimal holograms for optical trap arrays,"* Opt. Express 15, 1913-1922 (2007)
+[1] Roberto Di Leonardo, Francesca Ianni, and Giancarlo Ruocco, *"Computer generation of optimal holograms for optical trap arrays,"* Opt. Express 15, 1913-1922 (2007)

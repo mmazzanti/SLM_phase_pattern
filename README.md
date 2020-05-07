@@ -14,10 +14,10 @@ The various files have the following purposes:
 
 * GSW.py : Weighted Gerchberg–Saxton algorithm. Improvement of the GS algorithm to obtain better hologram uniformity. Based on [1]
 
-| Errors and reconstructed image for the GSW algorithm (40 iterations)|
-|  :---:  | 
-|<img width="400" height="265" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GSW_results.png">
- |
+<p align="center">
+ <strong>Errors and reconstructed image for the GSW algorithm (40 iterations)</strong>
+<img width="400" height="265" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GSW_results.png">
+</p>
 
 * Fresnel_gen.py : Generates a Fresnel lens pattern for the specified focus.
 

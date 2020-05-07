@@ -8,9 +8,15 @@ The various files have the following purposes:
 
 <p align="center">
   <img width="400" height="200" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/SLM_evol_show.gif">
+  <em>Phase pattern evolution for GS algorithm</em>
+  <img width="400" height="265" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GS_results.png">
 </p>
 
 * GSW.py : Weighted Gerchberg–Saxton algorithm. Improvement of the GS algorithm to obtain better hologram uniformity. Based on [1]
+
+<p align="center">
+  <img width="400" height="265" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/GSW_results.png">
+</p>
 
 * Fresnel_gen.py : Generates a Fresnel lens pattern for the specified focus.
 

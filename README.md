@@ -15,13 +15,13 @@ The various files have the following purposes:
 * Fresnel_gen.py : Generates a Fresnel lens pattern for the specified focus.
 
 <p align="center">
-  <img width="400" height="400" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/Lens_show.png">
+  <img width="300" height="242" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/Lens_show.png">
 </p>
 
 * Blazed_grating_gen.py : Generates a blazed grating pattern for shifting the hologram from the zero order spot.
 
 <p align="center">
-  <img width="400" height="400" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/Grating_show.png">
+  <img width="300" height="242" src="https://github.com/mmazzanti/SLM_phase_pattern/blob/master/Presentation_files/Grating_show.png">
 </p>
 
 

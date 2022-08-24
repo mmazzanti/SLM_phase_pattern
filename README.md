@@ -1,3 +1,4 @@
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
 # SLM Phase Pattern generator
 
 Implementation of Gerchberg-Saxton algorithm for generating a SLM phase pattern from a target intensity image.

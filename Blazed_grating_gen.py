@@ -8,17 +8,19 @@ SIZE_X,SIZE_Y=1272,1024    # SLM size in pixel
 Grating=np.zeros((SIZE_Y, SIZE_X))
 
 thetaB=5/360*2*np.pi       # Angle of diffraction of the 1st order (angle between incident beam and reflection)
-wl=0.000008                # Wavelength of light
 
-d=wl/(np.sin(thetaB)*2)    # Spacing of the diffraction grating
-N=SLM_X_SIZE/d             # Number of steps (sawtooth) fitting in the slm area
-incr=round(SIZE_X/N)
+wl=760e-9          # WaveLength
+pixel_pitch = 12.5e-6 # pixel pitch in m 
+lmm = 2 # number of lines per mm
 
-for a in range(0,SIZE_Y):
-    for b in range(0,SIZE_X):
-        Grating[a,b]=b%incr*255/(incr-1)
+pxl = 1e-3/lmm/pixel_pitch
+grating=np.zeros((SIZE_Y, SIZE_X))
+theta = np.pi/2
+for n in range(0,SIZE_Y):
+    for m in range(0,SIZE_X):
+        grating[n,m] = 255*(n/pxl*np.sin(theta)**2+m/pxl*np.cos(theta)**2)%255
 
-Grating2=Grating.astype(uint8)
+Grating2=grating.astype(uint8)
 png.from_array(Grating2, 'L').save("Grating.png")
 
 plt.imshow(Grating2)

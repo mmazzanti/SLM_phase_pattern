@@ -16,9 +16,11 @@ lmm = 2 # number of lines per mm
 pxl = 1e-3/lmm/pixel_pitch
 grating=np.zeros((SIZE_Y, SIZE_X))
 theta = np.pi/2
-for n in range(0,SIZE_Y):
-    for m in range(0,SIZE_X):
-        grating[n,m] = 255*(n/pxl*np.sin(theta)**2+m/pxl*np.cos(theta)**2)%255
+
+x_list = np.linspace(-SIZE_X/2,SIZE_X/2,SIZE_X+1)
+y_list = np.linspace(-SIZE_Y/2,SIZE_Y/2,SIZE_Y+1)
+X, Y = np.meshgrid(x_list,y_list)
+grating = (255*(Y/pxl*np.sin(theta)+X/pxl*np.cos(theta)))%255
 
 Grating2=grating.astype(uint8)
 png.from_array(Grating2, 'L').save("Grating.png")
